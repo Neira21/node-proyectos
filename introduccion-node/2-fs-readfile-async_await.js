@@ -4,18 +4,13 @@
 const { readFile } = require('node:fs/promises');
 
 (
-  async () =>{
+  async () => {
     console.log('Leyendo el 1er archivo...')
     const text = await readFile('./archivo.txt', 'utf-8')
     console.log('Primer texto', text)
-    
-    console.log("Haciendo otra cosa...")
-    
+    console.log('Haciendo otra cosa...')
     console.log('Leyendo el 2do archivo...')
     const text2 = await readFile('./archivo2.txt', 'utf-8')
     console.log('Segundo texto', text2)
   }
 )()
-
-
-

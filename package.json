@@ -1,0 +1,28 @@
+{
+  "name": "api-node",
+  "version": "1.0.0",
+  "description": "Practicando node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neira21/api-nodejs.git"
+  },
+  "author": "Neira21",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Neira21/api-nodejs/issues"
+  },
+  "homepage": "https://github.com/Neira21/api-nodejs#readme",
+  "devDependencies": {
+    "standart": "^6.1.0"
+  },
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}

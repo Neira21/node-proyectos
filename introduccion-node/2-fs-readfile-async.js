@@ -3,19 +3,18 @@
 const fs = require('node:fs')
 console.log('Leyendo el 1er archivo...')
 fs.readFile('./archivo.txt', 'utf-8', (error, text) => {
-  if(error){
+  if (error) {
     console.log(error)
     return
   }
   console.log(text)
 })
 
-console.log("Haciendo otra cosa...")
-
+console.log('Haciendo otra cosa...')
 
 console.log('Leyendo el 2do archivo...')
 fs.readFile('./archivo2.txt', 'utf-8', (error, text) => {
-  if(error){
+  if (error) {
     console.log(error)
     return
   }

@@ -1,7 +1,7 @@
 // Método con async await
 // El ES6 permite usar await dentro del archivo por lo que una opción para su uso sería usar la extensión mjs y en vez de require usar import from
 
-const { readFile } = require('node:fs/promises');
+const { readFile } = require('node:fs/promises')
 
 Promise.all([
   readFile('./archivo.txt', 'utf-8'),
