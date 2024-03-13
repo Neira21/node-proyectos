@@ -1,5 +1,6 @@
 // Método con async await
-// El ES6 permite usar await dentro del archivo por lo que una opción para su uso sería usar la extensión mjs y en vez de require usar import from
+// El ES6 permite usar await dentro del archivo por lo que una opción para su uso sería usar la 
+// extensión mjs y en vez de require usar import from
 
 import { readFile } from 'node:fs/promises'
 

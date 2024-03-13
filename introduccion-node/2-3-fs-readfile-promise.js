@@ -9,7 +9,11 @@ const fs = require('node:fs/promises')
 
 console.log('Leyendo el 1er archivo...')
 fs.readFile('./archivo.txt', 'utf-8')
-  .then(text => console.log(text))
+  .then(text => 
+    {
+      return console.log(text)
+    }
+  )
   .catch(error => console.log(error)) // se puede usar un catch para capturar errores
 
 console.log('Haciendo otra cosa...')

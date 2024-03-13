@@ -1,14 +1,15 @@
-const fs = require('node:fs/promises')
+const fs = require('node:fs')
 const path = require('node:path')
 
 const folder = process.argv[2] ?? '.'
 
-async function ls (folder) {
+
+async function ls(folder) {
   let files
   try {
     files = await fs.readdir(folder)
   }catch {
-    console.error('Error al leer el directorio: ', folder)
+    console.error('Error al leer   directorio: ', folder)
     return
   }
   
