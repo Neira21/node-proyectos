@@ -13,9 +13,9 @@
   "author": "Neira21",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Neira21/api-nodejs/issues"
+    "url": "https://github.com/Neira21/node-proyectos/issues"
   },
-  "homepage": "https://github.com/Neira21/api-nodejs#readme",
+  "homepage": "https://github.com/Neira21/node-proyectos#readme",
   "devDependencies": {
     "standart": "^6.1.0"
   },
