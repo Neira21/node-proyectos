@@ -9,11 +9,12 @@ const processRequest = (req, res) => {
   res.setHeader('Content-Type', 'text/plain; charset=utf-8')
   
   if(req.url === '/'){
-    res.statuscode = 200
+    res.statuscode = 200 //ok
     res.end('Bienvenido a mi página de inicio')
   }else if(req.url === '/imagen-kirby-png'){
     fs.readFile('./kirby.png', (err, data)=> {
       if(err){
+        res.statuscode = 500
         res.end('No se pudo encontrar la imagen')
       }else {
         res.setHeader('Content-Type', 'image/png')

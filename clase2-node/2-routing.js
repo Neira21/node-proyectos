@@ -21,7 +21,7 @@ const proccesRequest = (req, res) => {
           break
         default:
           res.statusCode = 404
-          res.setHeader('Content-Type', 'text/plain; charset = utf-8')
+          res.setHeader('Content-Type', 'text/plain; charset=utf-8')
           res.end('Not found')
       }
       break
@@ -39,7 +39,8 @@ const proccesRequest = (req, res) => {
           req.on('end', () => {
             const data = JSON.parse(body)
             // Llamar a una bd para guardar el pokemon
-            res.writeHead(201, { 'Content-Type': 'application/json; charset=uft-8' })
+            res.statusCode = 201
+            res.setHeader('Content-Type', 'application/json; charset=utf-8')
             res.end(JSON.stringify(data))
           })
           break
