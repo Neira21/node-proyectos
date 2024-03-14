@@ -1,4 +1,5 @@
 const express = require('express') // require -> commonJS
+
 const crypto = require('node:crypto')
 const cors = require('cors')
 
@@ -6,28 +7,33 @@ const movies = require('./movies.json')
 const { validateMovie, validatePartialMovie } = require('./schemas/movies')
 
 const app = express()
-app.use(express.json())
-app.use(cors({
-  origin: (origin, callback) => {
-    const ACCEPTED_ORIGINS = [
-      'http://localhost:8080',
-      'http://localhost:1234',
-      'https://movies.com',
-      'https://midu.dev'
-    ]
-
-    if (ACCEPTED_ORIGINS.includes(origin)) {
-      return callback(null, true)
-    }
-
-    if (!origin) {
-      return callback(null, true)
-    }
-
-    return callback(new Error('Not allowed by CORS'))
-  }
-}))
 app.disable('x-powered-by') // deshabilitar el header X-Powered-By: Express
+
+app.use(express.json())
+
+// middleware de cors
+
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     const ACCEPTED_ORIGINS = [
+//       'http://localhost:8080',
+//       'http://localhost:1024',
+//       'https://movies.com',
+//       'https://midu.dev'
+//     ]
+
+//     if (ACCEPTED_ORIGINS.includes(origin)) {
+//       return callback(null, true)
+//     }
+
+//     if (!origin) {
+//       return callback(null, true)
+//     }
+
+//     return callback(new Error('Not allowed by CORS'))
+//   }
+// }))
+
 
 // métodos normales: GET/HEAD/POST
 // métodos complejos: PUT/PATCH/DELETE
@@ -36,10 +42,28 @@ app.disable('x-powered-by') // deshabilitar el header X-Powered-By: Express
 // OPTIONS
 
 // Todos los recursos que sean MOVIES se identifica con /movies
+
+
+const ACCEPTED_ORIGINS = [
+  'http://localhost:8080',
+  'http://localhost:1024',
+  'https://movies.com',
+  'http://127.0.0.1'
+]
+
+// GET
 app.get('/movies', (req, res) => {
+
+  const origin = req.get('origin')
+  if(ACCEPTED_ORIGINS.includes(origin) || !origin ){
+    res.header('Access-Control-Allow-Origin', origin)
+  }
+
   const { genre } = req.query
   if (genre) {
     const filteredMovies = movies.filter(
+      // Debido a que el género es un array, debemos buscar si el género que nos pasan está incluido en el array 
+      // de géneros de la película, usaremos some para esto y lo pasamos a minúsculas para que sea case insensitive
       movie => movie.genre.some(g => g.toLowerCase() === genre.toLowerCase())
     )
     return res.json(filteredMovies)
@@ -54,6 +78,8 @@ app.get('/movies/:id', (req, res) => {
   res.status(404).json({ message: 'Movie not found' })
 })
 
+
+// POST
 app.post('/movies', (req, res) => {
   const result = validateMovie(req.body)
 
@@ -75,7 +101,15 @@ app.post('/movies', (req, res) => {
   res.status(201).json(newMovie)
 })
 
+// DELETE
+
 app.delete('/movies/:id', (req, res) => {
+
+  const origin = req.header('origin')
+  if(ACCEPTED_ORIGINS.includes(origin) || !origin ){
+    res.header('Access-Control-Allow-Origin', origin)
+  }
+
   const { id } = req.params
   const movieIndex = movies.findIndex(movie => movie.id === id)
 
@@ -88,6 +122,7 @@ app.delete('/movies/:id', (req, res) => {
   return res.json({ message: 'Movie deleted' })
 })
 
+// PATCH O PUT
 app.patch('/movies/:id', (req, res) => {
   const result = validatePartialMovie(req.body)
 
@@ -111,6 +146,17 @@ app.patch('/movies/:id', (req, res) => {
 
   return res.json(updateMovie)
 })
+
+
+app.options('/movies/:id', (req, res) => {
+  const origin = req.header('origin')
+  if(ACCEPTED_ORIGINS.includes(origin) || !origin ){
+    res.header('Access-Control-Allow-Origin', origin)
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH')
+  }
+  res.send(200)
+})
+
 
 const PORT = process.env.PORT ?? 1024
 
