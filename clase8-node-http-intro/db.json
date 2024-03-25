@@ -1,0 +1,50 @@
+{
+  "profesores":[
+    {
+      "nombre":"juan",
+      "edad":30,
+      "cursos":["matematicas","fisica"]
+    },
+    {
+      "nombre":"pedro",
+      "edad":40,
+      "cursos":["quimica","biologia"]
+    }
+  ],
+  "alumnos":[
+    {
+      "nombre":"luis",
+      "edad":20,
+      "cursos":["matematicas","fisica"]
+    },
+    {
+      "nombre":"ana",
+      "edad":25,
+      "cursos":["quimica","biologia"]
+    }
+  ],
+  "cursos":[
+    {
+      "nombre":"matematicas",
+      "profesor":"juan",
+      "alumnos":["luis"]
+    },
+    {
+      "nombre":"fisica",
+      "profesor":"juan",
+      "alumnos":["luis"]
+    },
+    {
+      "nombre":"quimica",
+      "profesor":"pedro",
+      "alumnos":["ana"]
+    },
+    {
+      "nombre":"biologia",
+      "profesor":"pedro",
+      "alumnos":["ana"]
+    }
+  ]
+  
+
+}
