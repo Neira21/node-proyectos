@@ -1,0 +1,18 @@
+{
+  "name": "clase10-node-arquitectura",
+  "version": "1.0.0",
+  "description": "Buenas practicas aplicación en nodeJS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Alvaro Neira",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "uuid": "^9.0.1"
+  }
+}
