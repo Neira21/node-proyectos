@@ -1,10 +1,6 @@
 {
   "workouts": [
     {
-      "name": "Core Buster bbbb",
-      "updateAt": "3/26/2024, 10:51:35 PM"
-    },
-    {
       "id": "4a3d9aaa-608c-49a7-a004-66305ad4ab50",
       "name": "Dead Push-Ups",
       "mode": "AMRAP 10",
@@ -24,24 +20,8 @@
       ]
     },
     {
-      "name": "Core Buster AAAA",
-      "mode": "AMRAP 20",
-      "equipment": [
-        "rack",
-        "barbell",
-        "abmat"
-      ],
-      "exercises": [
-        "15 toes to bars",
-        "10 thrusters",
-        "30 abmat sit-ups"
-      ],
-      "trainerTips": [
-        "Split your toes to bars into two sets maximum",
-        "Go unbroken on the thrusters",
-        "Take the abmat sit-ups as a chance to normalize your breath"
-      ],
-      "updateAt": "3/26/2024, 10:47:42 PM"
+      "name": "Prueba123123",
+      "updateAt": "3/30/2024, 4:53:30 PM"
     }
   ]
 }

@@ -25,11 +25,11 @@ const deleteOneWorkout = (id) => {
   Workout.deleteOneWorkout(id)
 }
 const updateOneWorkout = (id, workout) => {
-  // const newWorkout = {
-  //   ...workout,
-  //   updateAt: new Date().toLocaleString("en-US", { timeZone: "UTC"})
-  // }
-  // const result = Workout.updateOneWorkout(id, newWorkout)
+  const newWorkout = {
+    ...workout,
+    updateAt: new Date().toLocaleString("en-US", { timeZone: "UTC"})
+  }
+  const result = Workout.updateOneWorkout(id, newWorkout)
   return result
 }
 

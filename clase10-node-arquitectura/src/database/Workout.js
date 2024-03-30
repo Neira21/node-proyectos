@@ -23,12 +23,12 @@ const deleteOneWorkout = (id) => {
   saveToDatabase(DB)
 }
 
-// const updateOneWorkout = (id, newWorkout) => {
-//   const index = DB.workouts.findIndex(workout => workout.id === id)
-//   if(index === -1) return
-//   DB.workouts[index] = newWorkout
-//   saveToDatabase(DB)
-// }
+const updateOneWorkout = (id, newWorkout) => {
+  const index = DB.workouts.findIndex(workout => workout.id === id)
+  if(index === -1) return
+  DB.workouts[index] = newWorkout
+  saveToDatabase(DB)
+}
 
 
 module.exports = {
@@ -36,5 +36,5 @@ module.exports = {
   getById,
   createOneWorkout,
   deleteOneWorkout,
-  //updateOneWorkout
+  updateOneWorkout
 }

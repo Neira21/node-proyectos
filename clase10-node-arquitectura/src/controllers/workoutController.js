@@ -1,43 +1,43 @@
 const workoutService = require('../services/WorkoutService')
+// importar el schema de zod con require
+const { validateWorkout, validatePartialWorkout } = require('../schemas/workout')
 
 const getAll = (req, res) => {
   const allWorkouts = workoutService.getAll()
   res.send({status: 'OK', data: allWorkouts})
 }
+
 const getById = (req, res) => {
   const workout = workoutService.getById(req.params.id)
   if(workout) return res.json(workout)
   res.status(404).json({ message: 'Movie not found' })
 }
-const createOneWorkout = (req, res) => {
-  const { body } = req;
-  if (
-    !body.name ||
-    !body.mode ||
-    !body.equipment ||
-    !body.exercises ||
-    !body.trainerTips
-  ) {
-    return;
-  }
-  const newWorkout = {
-    name: body.name,
-    mode: body.mode,
-    equipment: body.equipment,
-    exercises: body.exercises,
-    trainerTips: body.trainerTips,
-  };
-  const resuilt = workoutService.createOneWorkout(newWorkout)
-  res.status(201).send({ status: "OK", data: resuilt });
 
+const createOneWorkout = (req, res) => {
+  const result = validateWorkout(req.body)
+  if (!result.success) {
+    // 422 Unprocessable Entity
+    return res.status(400).json({ error: JSON.parse(result.error.message) })
+  }
+  const newWorkout = workoutService.createOneWorkout(result.data)
+  res.status(201).send({ status: "OK", newWorkout});
 }
-const deleteOneWorkout = (req, res) => {
-  workoutService.deleteOneWorkout(req.params.id)
+
+const deleteOneWorkout = async (req, res) => {
+  const result = workoutService.deleteOneWorkout(req.params.id)
+  console.log(result)
   res.send(`Delete workout ${req.params.id}`)
 }
+
 const updateOneWorkout = (req, res) =>{
-  workoutService.updateOneWorkout(req.params.id, req.body)
-  res.send(`Update workout ${req.params.id}`)
+  const result = validatePartialWorkout(req.body)
+  if (!result.success) {
+    return res.status(400).json({ error: JSON.parse(result.error.message) })
+  }
+
+  const workoutUptated = workoutService.updateOneWorkout(req.params.id, result.data)
+  console.log("asdasd", workoutUptated)
+  return res.json(workoutUptated)
 }
 
 module.exports = {
