@@ -2,7 +2,7 @@
   "workouts": [
     {
       "id": "4a3d9aaa-608c-49a7-a004-66305ad4ab50",
-      "name": "Dead Push-Ups",
+      "name": "Dead Push-Ups2",
       "mode": "AMRAP 10",
       "equipment": [
         "barbell"
@@ -12,7 +12,7 @@
         "15 hand-release push-ups"
       ],
       "createdAt": "1/25/2022, 1:15:44 PM",
-      "updatedAt": "3/10/2022, 8:21:56 AM",
+      "updatedAt": "3/30/2024, 9:06:08 PM",
       "trainerTips": [
         "Deadlifts are meant to be light and fast",
         "Try to aim for unbroken sets",
@@ -20,8 +20,85 @@
       ]
     },
     {
-      "name": "Prueba123123",
-      "updateAt": "3/30/2024, 4:53:30 PM"
+      "name": "Tommy V",
+      "mode": "For Time",
+      "equipment": [
+        "barbell",
+        "rope"
+      ],
+      "exercises": [
+        "21 thrusters",
+        "12 rope climbs, 15 ft",
+        "15 thrusters",
+        "9 rope climbs, 15 ft",
+        "9 thrusters",
+        "6 rope climbs, 15 ft"
+      ],
+      "id": "2f651178-fce3-4a6c-b35b-6c3973db298c",
+      "createdAt": "3/30/2024, 5:27:34 PM",
+      "updateAt": "3/30/2024, 5:27:34 PM"
+    },
+    {
+      "name": "Dead Push-Ups",
+      "mode": "AMRAP 10",
+      "equipment": [
+        "barbell"
+      ],
+      "exercises": [
+        "15 deadlifts",
+        "15 hand-release push-ups"
+      ],
+      "id": "984e0ea3-2748-4a08-a868-c96fea4890f2",
+      "createdAt": "3/30/2024, 5:28:35 PM",
+      "updateAt": "3/30/2024, 5:28:35 PM"
+    },
+    {
+      "name": "Heavy DT",
+      "mode": "5 Rounds For Time",
+      "equipment": [
+        "barbell",
+        "rope"
+      ],
+      "exercises": [
+        "12 deadlifts",
+        "9 hang power cleans",
+        "6 push jerks"
+      ],
+      "id": "aae609ed-2476-4d99-93c8-f1d16a2c813a",
+      "createdAt": "3/30/2024, 5:28:57 PM",
+      "updateAt": "3/30/2024, 5:28:57 PM"
+    },
+    {
+      "name": "Heavy DT2",
+      "mode": "5 Rounds For Time",
+      "equipment": [
+        "barbell",
+        "rope"
+      ],
+      "exercises": [
+        "12 deadlifts",
+        "9 hang power cleans",
+        "6 push jerks"
+      ],
+      "id": "4dc6cf24-6bb3-4d4a-8331-d434f439012f",
+      "createdAt": "3/30/2024, 5:30:54 PM",
+      "updateAt": "3/30/2024, 5:30:54 PM"
+    },
+    {
+      "name": "Heavy DT3",
+      "mode": "5 Rounds For Time",
+      "equipment": [
+        "barbell",
+        "rope"
+      ],
+      "exercises": [
+        "12 deadlifts",
+        "9 hang power cleans",
+        "6 push jerks"
+      ],
+      "id": "c4f07051-33a9-4f31-8072-32afc542cb26",
+      "createdAt": "3/30/2024, 5:31:49 PM",
+      "updateAt": "3/30/2024, 5:31:49 PM"
     }
   ]
 }

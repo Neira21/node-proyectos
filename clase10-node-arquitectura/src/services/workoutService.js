@@ -15,22 +15,25 @@ const createOneWorkout = (workout) => {
   const newWorkout = {
     ...workout,
     id: uuid(),
-    createdAt: new Date().toLocaleString("en-US", { timeZone: "UTC"}),
-    updateAt: new Date().toLocaleString("en-US", { timeZone: "UTC"})
+    createdAt: new Date().toLocaleString("en-US", { timeZone: "America/Lima"}),
+    updateAt: new Date().toLocaleString("en-US", { timeZone: "America/Lima"})
   }
-  const result = Workout.createOneWorkout(newWorkout);
-  return result;
+
+  try {
+    const result = Workout.createOneWorkout(newWorkout);
+    return result;  
+  } catch (error) {
+    throw error;
+  }
+  
+  
 }
 const deleteOneWorkout = (id) => {
   Workout.deleteOneWorkout(id)
 }
-const updateOneWorkout = (id, workout) => {
-  const newWorkout = {
-    ...workout,
-    updateAt: new Date().toLocaleString("en-US", { timeZone: "UTC"})
-  }
-  const result = Workout.updateOneWorkout(id, newWorkout)
-  return result
+const updateOneWorkout = (id, changes) => {
+  const updateWorkout = Workout.updateOneWorkout(id, changes)
+  return updateWorkout
 }
 
 module.exports ={

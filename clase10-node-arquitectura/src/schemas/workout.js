@@ -11,7 +11,17 @@ const workOutSchema = z.object({
   }),
 
   equipment: z.array(
-    z.enum(['barbell', 'dumbbell', 'kettlebell', 'pull-up bar', 'jump rope', 'box', 'rings', 'medicine ball', 'none'])
+    z.enum(
+      ['barbell',
+      'dumbbell', 
+      'kettlebell', 
+      'pull-up bar', 
+      'jump rope', 
+      'box', 
+      'rings', 
+      'medicine ball', 
+      "rope",
+      'none'])
   ),
   exercises: z.array(z.string()),
   trainerTips: z.array(z.string())

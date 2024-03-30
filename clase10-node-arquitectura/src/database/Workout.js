@@ -23,11 +23,18 @@ const deleteOneWorkout = (id) => {
   saveToDatabase(DB)
 }
 
-const updateOneWorkout = (id, newWorkout) => {
-  const index = DB.workouts.findIndex(workout => workout.id === id)
-  if(index === -1) return
-  DB.workouts[index] = newWorkout
-  saveToDatabase(DB)
+const updateOneWorkout = (id, changes) => {
+  const indexForUpdate = DB.workouts.findIndex((workout) => workout.id === id);
+  if (indexForUpdate === -1) return;
+  
+  const updatedWorkout = {
+    ...DB.workouts[indexForUpdate],
+    ...changes,
+    updatedAt: new Date().toLocaleString("en-US", { timeZone: "UTC" }),
+  };
+  DB.workouts[indexForUpdate] = updatedWorkout;
+  saveToDatabase(DB);
+  return updatedWorkout;
 }
 
 

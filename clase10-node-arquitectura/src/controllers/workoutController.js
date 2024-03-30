@@ -30,13 +30,13 @@ const deleteOneWorkout = async (req, res) => {
 }
 
 const updateOneWorkout = (req, res) =>{
-  const result = validatePartialWorkout(req.body)
+  const { body, params: { id }} = req
+  const result = validatePartialWorkout(body)
   if (!result.success) {
     return res.status(400).json({ error: JSON.parse(result.error.message) })
   }
 
-  const workoutUptated = workoutService.updateOneWorkout(req.params.id, result.data)
-  console.log("asdasd", workoutUptated)
+  const workoutUptated = workoutService.updateOneWorkout(id, result.data)
   return res.json(workoutUptated)
 }
 
