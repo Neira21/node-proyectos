@@ -1,0 +1,21 @@
+{
+  "name": "clase11-node-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Alvaro Neira Riveros",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.19.2",
+    "mysql2": "^3.9.3",
+    "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
