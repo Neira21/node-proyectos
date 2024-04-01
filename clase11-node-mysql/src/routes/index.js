@@ -6,8 +6,8 @@ const routerIndex = Router();
 routerIndex.get('/ping', async (req, res) => {
   const [results, ] = 
     await db.query(
-      'SELECT (BIN_TO_UUID(id)) as "idEmploye" , name, salary FROM employee'
-    )  
+      'SELECT "pong" as "res";'
+    )
   res.json(results);
 })
 

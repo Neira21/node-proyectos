@@ -2,6 +2,9 @@ import express from 'express';
 import {employessRouter} from './routes/employees.js';
 import {routerIndex} from './routes/index.js';
 
+
+import { PORT } from './config.js'
+
 const app = express();
 
 app.use(express.json());
@@ -13,8 +16,6 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 })
 
-const port = process.env.PORT || 3000
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 })
