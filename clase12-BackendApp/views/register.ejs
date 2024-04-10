@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="../assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.122.0" />
+    <title>LOGIN NODE JWT</title>
+
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"> -->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+
+    <style>
+      body{
+        background-color: rgba(255, 255, 255, 0.9);
+        align-items: center;
+        padding: 40px 0;
+        
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="css/sign-in.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex align-items-center w-90 ">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 shadow-lg p-3 mb-5">
+          <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                Regístrate
+            </div>
+            <div class="card-body text-primary">
+              <form action="/register" method="POST">
+                <div class="mb-3">
+                  <label for="name" class="form-label"> Nombre Completo</label>
+                  <input type="text" id="name" name="name" class="form-control" >
+                </div>
+                <div class="mb-3">
+                  <label for="user" class="form-label"> Cuenta de Usuario</label>
+                  <input type="text" id="user" name="user" class="form-control" >
+                </div>
+                <div class="mb-3">
+                  <label for="pass" class="form-label"> Password </label>
+                  <input type="text" id="pass" name="pass" class="form-control" >
+                </div>
+                <div class="card  d-flex align-items-center flex-column justify-content-center">
+                <div class="mt-3">
+                  <input type="submit" class="btn btn-primary" value="Registrar" >
+                
+              </form>
+                <a class="btn btn-danger" href="/" > Cancelar </a>
+              </div>
+                <p class="text-black mt-4 text-center ">Si ya tienes una cuenta logueate <a href="/login">acá </a></p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<main class="form-signin w-100 m-auto shadow-lg p-5 text-center">
+        <form id="forrmLogin" action="/register" method="POST">
+         <h1 class="h3 mb-3 fw-normal">Registrate</h1>
+
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="user"
+            name="user"
+            placeholder="user"
+          />
+          <label for="user">User</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="pass"
+            name="pass"
+            placeholder="Password"
+          />
+          <label for="pass">Password</label>
+        </div> 
+
+        <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+      </form>
+      <br />
+      <a type="button" class="btn btn-warning w-100 py-2" href=""
+        >Registrarse</a
+      >
+    </main>
+    -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
