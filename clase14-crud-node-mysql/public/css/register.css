@@ -1,0 +1,62 @@
+/* signup.css */
+*{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+form {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form div{
+  margin : 15px 5px;
+}
+
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+select option{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+p {
+  margin-top: 20px;
+  text-align: center;
+}

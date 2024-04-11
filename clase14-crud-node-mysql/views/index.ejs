@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th{
+      padding: 10px;
+      text-align: left;
+    }
+    td{
+      padding: 10px;
+      text-align: left;
+      font-weight: 250;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+    .create{
+      background-color: blue;
+      color: #f2f2f2;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    .editar{
+      background-color: green;
+      color: #f2f2f2;
+    }
+    .eliminar{
+      background-color: red;
+      color: #f2f2f2;
+    }
+
+    .button{
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <button class="create">
+    <a href="/register">Nuevo Usuario</a>
+  </button>
+  <h1>Hola mundo desde EJS Index </h1>
+    <table>
+      <thead>
+        <th>Id</th>
+        <th>Nombre de usuario</th>
+        <th>rol_id</th>
+        <th>rol</th>
+        <th>Acciones</th>
+      </thead>
+      <% users.forEach(user => { %>
+        <tbody> 
+          <td><%= user.id %></td>
+          <td><%= user.usuario %></td>
+          <td><%= user.rol_id %></td>
+          <td><%= user.role %></td>
+          <td style="display: flex; gap: 50px; justify-content: center;">
+            <a class="editar button" href="/edit/<%= user.id %>">Editar</a>
+            <a class="eliminar button " href="/delete/<%= user.id %>">Eliminar</a>
+          </td>
+        </tbody>
+      <% }); %>
+    </table>
+
+
+</body>
+</html>
