@@ -17,7 +17,7 @@
       <% } %>        
     </p>
 
-    <form action="/register" method="POST">
+    <form id="registerForm" action="/register" method="POST">
       <div>
         <label for="username">Usuario:</label><br>
         <input type="text" id="username" name="usuario"><br>
@@ -35,11 +35,26 @@
             <option value="4">data-viewer</option>
         </select>
       </div>
-        <button type="submit">Registrarse</button>
+        <button type="button" onclick="saved()" >Registrarse</button>
     </form>
     <p>Ya tienes una cuenta? <a href="/login">Iniciar Sesión</a></p>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      function saved(){
+          Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Usuario añadido",
+          showConfirmButton: false,
+          timer: 3000
+        }).then(() => {
+          document.getElementById("registerForm").submit();
+        });
+      }
+    </script>
+    
     
 </body>
 </html>
