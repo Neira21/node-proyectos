@@ -23,4 +23,4 @@ INSERT INTO employee (name, salary) values
   ('A', 1500),
   ('b', 1600);
 
-SELECT * FROM employee;
+SELECT (BIN_TO_UUID(id)) as "idEmploye" , name, salary FROM employee;
