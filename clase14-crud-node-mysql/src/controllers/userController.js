@@ -1,9 +1,11 @@
+import connection from "../../conection/bd.js";
 
 export const goLogin = async (req, res) => {
   res.render("login");
 }
 
 export const login = async (req, res) => {
+  console.log("asd", req.body);
   //TODO
   const [result] = await connection.query(
     "SELECT * FROM users WHERE usuario = ? AND password = ?",

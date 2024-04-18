@@ -29,4 +29,9 @@ insert into users (usuario, password, rol_id) values ('Dan18', '12345', 4);
 
 select * from users;
 
+describe users;
+
+
+select * from roles;
+
 select u.id, u.usuario, r.id as roñ_id, r.nombre as role from users u inner join roles r on u.rol_id = r.id order by u.id;
