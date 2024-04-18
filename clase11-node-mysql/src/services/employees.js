@@ -12,9 +12,6 @@ const getByIdData = async ({id}) => {
       FROM employee WHERE id = UUID_TO_BIN(?)`
       ,[id]
     );
-    if(result.length === 0) {
-      return null;
-    }
     return result[0];  
   } catch (error) {
     console.log(error)
@@ -54,7 +51,7 @@ const updateData = async ({ id, data }) => {
   const { name, salary } = data;
 
   try {
-    const result = await db.query(
+    await db.query(
       `UPDATE employee SET name = IFNULL(?, name), salary = IFNULL(?, salary) WHERE id=UUID_TO_BIN(?)`, 
       [name, salary, id]
     )
@@ -71,12 +68,13 @@ const updateData = async ({ id, data }) => {
 }
 const deleteData = async ({ id }) => {
   try {
-    const result = await db.query(
+    await db.query(
       `DELETE FROM employee WHERE id = UUID_TO_BIN(?)`,
       [id]
     )
   }catch(e) {
     console.log(e)
+    return null;
   }
 }
 

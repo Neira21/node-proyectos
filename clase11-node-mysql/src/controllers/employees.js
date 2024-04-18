@@ -10,11 +10,11 @@ export default class EmployeesController{
   static async getByIdData (req, res) {
     const { id } = req.params;
     const employee = await getByIdData({id});
-
+    // retorna return {message: "Empleado no encontrado"};
     if(employee === null) {
       res.status(404).json({message: "Empleado no encontrado"});
     }else{
-      res.json(employee);  
+      res.json(employee);
     }
   }
 

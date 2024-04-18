@@ -1,0 +1,10 @@
+# Completar con los datos de la base de datos y puerto de la aplicacion
+## Aplicación
+PORT = 
+
+## Base de Datos MySQL
+HOST = 
+PORT_DB = 
+USER = 
+DATABASE = 
+PASSWORD = 
