@@ -1,0 +1,87 @@
+<%- include('partials/header') -%>
+
+
+  <h2>Registro</h2>
+  <form>
+    <div>
+      <label for="nombre">Nombre</label>
+      <input name="nombre" id="nombre" type="text" placeholder="Ingrese su nombre">
+      <div class="nombre error"></div>
+    </div>
+    <div>
+      <label for="edad">Edad</label>
+      <input name="edad" id="edad" type="number" max="100" min="18" placeholder="Ingrese su edad">
+      <div class="edad error"></div>
+    </div>
+    <div>
+      <label for="pais">Pais</label>
+      <input name="pais" id="pais" type="text" placeholder="Ingrese su país de origen">
+    </div>
+    <div>
+      <label for="correo">Correo</label>
+      <input name="correo" id="correo" type="email" placeholder="Ingrese su correo">
+      <div class="correo error"></div>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input name="password" id="password"  type="password" placeholder="Ingrese su password">
+      <div class="password error"></div>
+    </div>
+    <button>Registrarse</button>
+  </form>
+
+  <script>
+    const form = document.querySelector('form');
+    const nombreError = document.querySelector('.nombre.error');
+    const edadError = document.querySelector('.edad.error');
+    const correoError = document.querySelector('.correo.error');
+    const passwordError = document.querySelector('.password.error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      //getValue
+      const nombre = form.nombre.value;
+      const edad = form.edad.value;
+      const pais = form.pais.value;
+      const correo = form.correo.value;
+      const password = form.password.value;
+
+      const data = {
+        nombre,
+        edad,
+        pais,
+        correo,
+        password
+      }
+      console.log(data)
+      try {
+        const response = await fetch('/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        const json = await response.json();
+        if(json.errors){
+          console.log(json.errors)
+          nombreError.textContent = json.errors.nombre;
+          edadError.textContent = json.errors.edad;
+          correoError.textContent = json.errors.correo;
+          passwordError.textContent = json.errors.password;
+        }
+        // porque user?
+        // porque en el controlador de signup se envia un json con la propiedad user
+        if(json.user){
+          alert('Usuario registrado con éxito');
+          location.href = '/login';
+        }
+
+      } catch (error) {
+        console.log(error);
+      }
+    })
+  </script>
+
+<%- include('partials/footer') -%>

@@ -1,0 +1,55 @@
+<%- include('partials/header') -%>
+  
+  
+  <h2>Login</h2>
+  <form>
+    <div>
+      <label for="correo">Correo</label>
+      <input name="correo" id="correo" type="email" placeholder="Ingrese su correo">
+      <div class="correo error"></div>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input name="password" id="password"  type="password" placeholder="Ingrese su password">
+      <div class="password error"></div>
+    </div>
+    <button type="submit">Ingresar</button>
+  </form>
+
+  <script>
+    const form = document.querySelector('form');
+    const correoError = document.querySelector('.correo.error');
+    const passwordError = document.querySelector('.password.error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      //getValue
+      const correo = form.correo.value;
+      const password = form.password.value;
+      
+      try {
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({correo, password})
+        });
+        const json = await response.json();
+        if(json.errors){
+          correoError.textContent = json.errors.correo;
+          passwordError.textContent = json.errors.password;
+        }
+        // porque user?
+        // porque en el controlador de signup se envia un json con la propiedad user
+        if(json.user){
+          location.href = '/users';
+        }
+
+      } catch (error) {
+        console.log(error);
+      }
+    })
+  </script>
+
+<%- include('partials/footer') -%>
