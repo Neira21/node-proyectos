@@ -21,6 +21,8 @@ app.listen(port, () => {
 
 app.post('/login', (req, res) => {
   if(req.body.usuario === 'admin' && req.body.password === 12345){
+    // Payload es la información que se va a enviar en el token, en este caso solo un check con el valor de true
+    // En otros casos se puede enviar el id del usuario, el nombre, etc
     const payload = {
       check:true
     };
@@ -37,6 +39,8 @@ app.post('/login', (req, res) => {
   }
 })
 
+
+// En este caso, la ruta será un middleware que verifica si el token es correcto
 const verificacion = express.Router();
 
 verificacion.use((req, res, next) => {
@@ -58,6 +62,7 @@ verificacion.use((req, res, next) => {
         return res.json({message: 'El Token es inválido'})
       } else{
         req.decoded = decoded
+        console.log("decoded", decoded)
         next()
       }
     })
