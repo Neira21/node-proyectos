@@ -1,7 +1,7 @@
+// Para pruebas, no es para la authentificación de usuarios
 import { Router } from "express";
 import connectDB from '../connection.js'
 import { getAllUsers, getUserById } from '../controllers/UserController.js';
-
 
 export const userRouter = Router()
 

@@ -1,8 +1,12 @@
+// Sí es para la authentificación de usuarios
+
 import { Router } from 'express'
 import { LoginUser, RegisterUser, isUserAuthenticated, logout } from '../controllers/AuthController.js'
 
 const router = Router()
 
+
+//middleware => isUserAuthenticated
 router.get('/', isUserAuthenticated, (req, res) => {
   res.render('index', {
     user: req.user
@@ -14,7 +18,7 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/register', (req, res) => {
-  res.render('register')
+  res.render('register', {alert: false})
 })
 
 // Para el registro y login de usuarios

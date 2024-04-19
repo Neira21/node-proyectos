@@ -40,18 +40,18 @@
                 Regístrate
             </div>
             <div class="card-body text-primary">
-              <form action="/register" method="POST">
+              <form id="form" action="/register" method="POST">
                 <div class="mb-3">
                   <label for="name" class="form-label"> Nombre Completo</label>
                   <input type="text" id="name" name="name" class="form-control" >
                 </div>
                 <div class="mb-3">
                   <label for="user" class="form-label"> Cuenta de Usuario</label>
-                  <input type="text" id="user" name="user" class="form-control" >
+                  <input type="text" id="user" name="user" class="form-control"  >
                 </div>
                 <div class="mb-3">
                   <label for="pass" class="form-label"> Password </label>
-                  <input type="text" id="pass" name="pass" class="form-control" >
+                  <input type="password" id="pass" name="pass" class="form-control" >
                 </div>
                 <div class="card  d-flex align-items-center flex-column justify-content-center">
                 <div class="mt-3">
@@ -67,39 +67,25 @@
         </div>
       </div>
     </div>
-    <!--<main class="form-signin w-100 m-auto shadow-lg p-5 text-center">
-        <form id="forrmLogin" action="/register" method="POST">
-         <h1 class="h3 mb-3 fw-normal">Registrate</h1>
-
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control"
-            id="user"
-            name="user"
-            placeholder="user"
-          />
-          <label for="user">User</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="pass"
-            name="pass"
-            placeholder="Password"
-          />
-          <label for="pass">Password</label>
-        </div> 
-
-        <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
-      </form>
-      <br />
-      <a type="button" class="btn btn-warning w-100 py-2" href=""
-        >Registrarse</a
-      >
-    </main>
-    -->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(alert) { %>
+      <script>
+        const form = document.getElementById('form')
+        form.addEventListener('submit', (e) => {
+          e.preventDefault()
+        })
+
+        Swal.fire({
+          title: "<%= alertTitle %>",
+          text: "<%= alertMessage %>",
+          icon: "<%= alertIcon %>",
+          showConfirmButton: "<%= showConfirmButton %>",
+          timer: "<%= timer %>"
+        }).then(()=>{
+          window.location = '/<%= ruta %>'
+        })
+      </script>  
+    <% } %>
   </body>
 </html>

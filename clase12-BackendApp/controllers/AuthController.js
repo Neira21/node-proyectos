@@ -11,6 +11,20 @@ import { promisify } from "util";
 export const RegisterUser = async (req, res) => {
   try {
     const { name, user, pass } = req.body;
+
+    if(!name || !user || !pass){
+      res.render("register", {
+        alert: true,
+        alertTitle: "Advertencia",
+        alertMessage: "Todos los campos son obligatorios",
+        alertIcon: "info",
+        showConfirmButton: true,
+        timer: 1000,
+        ruta: "register",
+      })
+      return
+    }
+
     let passHash = await bcryptjs.hash(pass, 8);
 
     const result = await connectDB.query(
@@ -50,9 +64,7 @@ export const LoginUser = async (req, res) => {
           "SELECT * FROM usuarios WHERE user = ?",
           [user]
         );
-
         //console.log(results)
-
         if (
           results[0].length == 0 ||
           !(await bcryptjs.compare(pass, results[0][0].pass))
@@ -70,7 +82,9 @@ export const LoginUser = async (req, res) => {
         } else {
           //inicio de sesión OK
           //console.log("generacion de token ////////////////////")
-          const id = results[0].id;
+          console.log("asdasdasd", results[0][0].id)
+
+          const id = results[0][0].id;
           const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
             expiresIn: process.env.JWT_TIEMPO_EXPIRACION,
           });
@@ -101,29 +115,28 @@ export const LoginUser = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    
   }
 };
 
 //middleware para verificar si el usuario esta autenticado
 export const isUserAuthenticated = async (req, res, next) => {
-  if (req.cookies.jwt) {
+  const token = req.cookies.jwt;
+  console.log("inicia")
+  if (token) {
+    console.log("hay un token en la cookie")
     try {
-      const decodificada = await promisify(jwt.verify)(
-        req.cookies.jwt,
-        process.env.JWT_SECRET
-      );
-      connectDB.query(
-        "SELECT * FROM usuarios WHERE id = ?",
-        [decodificada.id],
-        (error, results) => {
-          if (!results) {
-            return next();
+      jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
+          if (err) {
+            console.log(err.message);
+            res.redirect('/login');
+          } else {
+            console.log("Token decodificado:", decodedToken);
+            const [result] = await connectDB.query("SELECT * FROM usuarios WHERE id = ?",[decodedToken.id])
+            console.log()
+            req.user = result[0];
+            next();
           }
-          req.user = results[0];
-          return next();
-        }
-      );
+          });
     } catch (error) {
       console.log(error);
       return next();
