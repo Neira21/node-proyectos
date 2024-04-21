@@ -4,12 +4,12 @@ const {config} = require('dotenv')
 config()
 
 const booksRouter = require('./routes/book.routes')
-
 const app = express()
+
+app.use(express.static('public'))
 
 app.use(express.json())
 app.use('/books', booksRouter)
-
 
 // Conexión a la base de datos
 mongoose.connect(process.env.MONGO_URL, {
@@ -23,11 +23,9 @@ mongoose.connect(process.env.MONGO_URL, {
     console.error(error)
 })
 
-
 app.get('/', (req, res) => {
   res.send('<h1>Hola Mundo</h1>')
 })
-
 
 // Escuchando el puerto
 const port = process.env.PORT || 3000
