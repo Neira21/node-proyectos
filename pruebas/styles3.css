@@ -1,0 +1,227 @@
+html{
+  scroll-behavior: smooth;
+  background-color: beige;
+  padding: 50px 30px;
+}
+
+.body{
+  display: flex;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:0;
+  font-size: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+#main-doc{
+  margin-left: 200px;
+  padding: 20px;
+  width: 100%;
+}
+
+#navbar header{
+  text-align: center;
+}
+
+#navbar{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f2f2f2;
+  height: 100vh;
+  width: 200px;
+  padding: 20px;
+  justify-content: center;
+  gap: 20px;
+}
+#navbar a{
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #333;
+  transition: 0.3s;
+  
+}
+
+#navbar a:hover{
+  background-color: #333;
+  color: #f2f2f2;
+
+}
+
+
+#Introduccion_HTML{
+  padding: 25px;
+  margin: 0px 100px 100px 100px;
+  border-radius: 10px;
+}
+
+#Introduccion_HTML p{
+  text-align: center;
+  line-height: 2;
+}
+
+#Introduccion_HTML h1{
+  text-align: center;
+  color: #333;
+  margin: 20px 0;
+}
+
+#Introduccion_HTML img{
+  display: block;
+  margin: 35px auto;
+  border-radius: 50px;
+  width: 300px;
+  height: 300px;
+}
+
+#Tabla_de_proyectos h1{
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+}
+
+#Tabla_de_proyectos{
+  margin: 50px 100px;
+}
+
+#Tabla_de_proyectos table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+table, th, td{
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+table img{
+  padding: 15px;
+}
+
+#Certificados{
+  margin: 100px 100px;
+}
+
+#Certificados .container{
+  width: 500px; /* Ajusta el ancho del contenedor */
+  
+}
+
+#Certificados .container{
+  margin: auto;
+}
+
+
+
+#Certificados ul{
+  margin: 20px 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+#Contacto{
+  width: 90%;
+  margin: 0 auto;
+  
+}
+
+#Contacto h1{
+  text-align: left;
+  margin: 20px 100px;
+  color: #333;
+}
+
+#c form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+button{
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  width: 10%;
+  color: white;
+  cursor: pointer;
+  margin: 10px 15px;
+  background-color: #333;
+}
+.cont{
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+#Contacto form div{
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#Contacto form div{
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#Contacto form div input{
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  width: 100%;
+  line-height: 2.5
+}
+
+textarea{
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  width: 100%;
+}
+
+
+@media screen and (max-width: 600px) {
+  .body{
+    display: flex;
+    flex-direction: column;
+  }  
+  #main-doc{
+    margin-left: 0;
+    width: 100%;
+  }
+  #navbar header{
+    text-align: center;
+  }
+  
+  #navbar{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: #f2f2f2;
+    height: auto;
+    
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+  }
+  #main-doc{
+    margin-top: 350px;
+  }
+}

@@ -1,0 +1,58 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:0;
+  font-size: 20px;
+}
+
+body{
+  background-color:rgba(146, 60, 212, 0.539);
+  min-width:400px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  padding: 15px 0px;
+  margin: 20px;
+}
+
+#main{
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid white;
+  max-width: 800px;
+}
+
+#description-paragraph{
+  text-align: center;
+  margin: 20px;
+  border: 1px solid white;
+}
+
+#img{
+  display: block;
+}
+
+#img-div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#image{
+  max-width: 100%;
+  height: auto;
+}
+
+#img-caption{
+  margin: 10px;
+  font-size: 15px;
+}
+
+#trofeos{
+  list-style: none;
+  border: 1px solid white;
+  margin: 10px;
+  padding: 20px;
+}

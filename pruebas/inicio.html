@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Proyecto</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <header>
+    <h1 id="title" >FreeCodeCamp - Proyecto 1 Formulario</h1>
+    <p id="description">Primer proyecto sobre el curso de</p>
+  </header>
+  <main>
+
+    <form id="survery-form">
+      <div>
+        <label id="name-label" for="name">Nombre</label>
+        <input type="text" id="name" placeholder="Ingresa tu nombre" required>
+      </div>
+      <div>
+        <label id="email-label" for="email">Correo Electrónico</label>
+        <input type="email" id="email" placeholder="Ingresa tu email" required>
+      </div>
+      <div>
+        <label id="number-label" for="number">Edad</label>
+        <input type="number" id="number" placeholder="Ingresa tu edad"  name="number" min="1" max="100" step="1" pattern="[0-9]*" required>
+      </div>
+      <div>
+        <label>¿Cómo describes tu rol?</label>
+        <select id="dropdown">
+          <option disabled selected >Selecciona una opción</option>
+          <option value="estudiante">Estudiante</option>
+          <option value="tiempo-completo">Tiempo Completo</option>
+          <option value="tiempo-parcial">Tiempo Parcial</option>
+          <option value="desempleado">Desempleado</option>
+          <option value="otro">Otro</option>
+        </select>
+      <div>
+        <label>
+          Recomendarías FreeCodeCamp a un amigo?
+        </label>
+        <div class="radio-group">
+          <div class="radio-item">
+            <input type="radio" id="option1" name="option" value="option1">
+            <label for="option1">Opción 1</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="option2" name="option" value="option2">
+            <label for="option2">Opción 2</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="option3" name="option" value="option3">
+            <label for="option3">Opción 3</label>
+          </div>
+        </div>
+
+        <div>
+          <label>Seleccionar tu herramienta favorita del curso</label>
+          <select id="dropdown">
+            <option disabled selected >Selecciona una opción</option>
+            <option value="estudiante">Proyectos</option>
+            <option value="tiempo-completo">Retos</option>
+            <option value="tiempo-parcial">Comunidad</option>
+            <option value="desempleado">Cursos</option>
+            <option value="otro">Código abierto</option>
+          </select>
+        <div>
+
+        <div id="mejoras" >
+          <label>Que herrmienta debería mejorarse?</label>
+          <div>
+            <input id="fronend" type="checkbox" value="fronend">
+            <label for="fronend">Proyectos Front-end</label>
+          </div>
+          <div>
+            <input id="backend" type="checkbox" value="backend">
+            <label for="backend">Proyectos Back-end</label>
+          </div>
+          <div>
+            <input id="database" type="checkbox" value="database">
+            <label for="database">Visualización de datos</label>
+          </div>
+          <div>
+            <input id="challenges" type="checkbox" value="retos">
+            <label for="challenges">Retos</label>
+          </div>
+          <div>
+            <input id="community" type="checkbox" value="comunidad">
+            <label for="community">Comunidad</label>
+          </div>
+          <div>
+            <input id="open-source" type="checkbox" value="open-source">
+            <label for="open-source">Código abierto</label>
+          </div>
+          <div>
+            <input id="gitter" type="checkbox" value="gitter">
+            <label for="gitter">Salas de ayuda Gitter</label>
+          </div>
+          <div>
+            <input id="videos" type="checkbox" value="videos">
+            <label for="videos">Videos</label>
+          </div>
+        </div>
+
+        <div >
+          <label>Agregue un comentario</label>
+          <textarea id="comments" rows="4" cols="70" placeholder="Ingresa tu comentario"></textarea>
+        </div>
+        
+        <button id="submit" type="submit">Enviar</button>
+    </form>
+    
+  </main>
+  <script src="inicio.js"></script>
+</body>
+</html>

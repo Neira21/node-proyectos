@@ -1,0 +1,101 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:0;
+}
+
+body{
+  background-color:rgba(68, 69, 105, 0.539);
+  min-width:400px;
+  color: white;
+  padding: 100px 0px;
+}
+#title{
+  margin: 15px 0;
+  text-align: center
+}
+
+#description{
+  font-size:20px;
+  font-style: italic;
+  text-align: center
+}
+
+#survery-form{
+  background-color: rgb(60, 33, 158);
+  max-width: 450px;
+  padding: 10px 50px;
+  display: flex;
+  margin: 30px auto;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px
+}
+#survery-form div{
+  width: 100%;
+  margin: 20px 0;
+}
+#survery-form label{
+  font-size: 19px;
+}
+
+#survery-form input[type="text"], input[type="email"], input[type="number"]  {
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  border: none
+}
+
+#survery-form select{
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  margin: 15px 0;
+
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.radio-item input {
+  margin-right: 10px;
+}
+
+#comments {
+  width: 100%; /* Ocupa el 90% del ancho del contenedor padre */
+  min-height: 100px; /* Altura mínima */
+  max-height: 300px; /* Altura máxima */
+  resize: vertical; /* Solo se puede redimensionar verticalmente */
+  padding: 10px;
+  box-sizing: border-box; /* Incluye el padding en el tamaño total */
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin: 15px 0 5px 0;
+}
+
+#button{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px 0
+}
+
+#button:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+}
